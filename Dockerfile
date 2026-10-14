@@ -2,6 +2,8 @@
 # 说明:不锁版本,每次构建都安装 npm 上的最新版 @deepseek-ai/dsh
 FROM node:24-slim
 
+# 将apt-get源更换为阿里云的镜像
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources
 
 # 基础工具:git(工作区操作)、curl(健康检查)、socat(端口转发,见 entrypoint)
 # python3/make/g++ 用于编译 node-pty 等原生模块(node-gyp 必需)
