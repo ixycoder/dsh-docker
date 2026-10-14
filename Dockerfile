@@ -11,6 +11,8 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends git curl socat ca-certificates python3 make g++ \
  && rm -rf /var/lib/apt/lists/*
 
+# 1. 配置阿里云源为默认源（核心命令）
+RUN npm config set registry https://registry.npmmirror.com
 
 # 安装 DeepSeek Harness 最新版(不锁定版本)
 # CACHEBUST:workflow 每次构建通过 build-args 传入 github.run_id,
